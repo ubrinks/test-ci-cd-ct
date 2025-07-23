@@ -23,11 +23,11 @@ jobs:
     # deploy to build subfolder
     - name: copy target
       run: cp adder build
-#    - name: deploy
-#      uses: s0/git-publish-subdir-action@master
-#      env:
-#        REPO: self
-#        BRANCH: main
-#        FOLDER: build
-#        TARGET_DIR: build
-#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: deploy
+      uses: s0/git-publish-subdir-action@master
+      env:
+        REPO: self
+        BRANCH: main
+        FOLDER: build
+        TARGET_DIR: build
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
