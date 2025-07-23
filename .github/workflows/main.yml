@@ -1,0 +1,33 @@
+name: Test CI/CT/CD Workflows using C
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build_and_test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    # checkout repo
+    - uses: actions/checkout@v4
+    # build target
+    - name: make
+      run: make
+    # run tests
+    - name: test
+      run: ./testinput | ./adder | ./checkoutput
+    # deploy to build subfolder
+    - name: copy target
+      run: cp adder build
+    - name: deploy
+#      uses: s0/git-publish-subdir-action@master
+#      env:
+#        REPO: self
+#        BRANCH: main
+#        FOLDER: build
+#        TARGET_DIR: build
+#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
