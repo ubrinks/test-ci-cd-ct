@@ -2,9 +2,9 @@ name: Test CI/CT/CD Workflows using C
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "docker" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "docker" ]
 
 jobs:
   build_and_test:
