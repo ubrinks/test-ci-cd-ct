@@ -49,6 +49,8 @@ jobs:
     # build docker image
     - name: go to build dir
       run: cd build
+    - name: xxxx
+      run: ls -l
     - name: build docker image
       run: docker build -t ${{ secrets.DOCKER_USERNAME }}/test-ci-cd-ct .
     - name: push docker image
